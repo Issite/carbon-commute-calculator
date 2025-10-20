@@ -73,17 +73,46 @@ In terms of user runtime environment, we will strive for minimalism, requiring o
 
 ## 4. Project Timeline and Responsibilities
 
-| Week(s) | Dates | Deliverables | Assignee |
-|---------|-------|--------------|----------|
-| Week 9 | Oct 20 - Oct 27 | Use Cases, Analysis/Elaboration Models | IA, CH |
-| Week 10 | Oct 27 - Nov 3 | Design Models | IA, CH |
-| Weeks 11-13 | Nov 3 - Nov 24 | Core algorithms for calculating footprint | CH |
-| Weeks 11-13 | Nov 3 - Nov 24 | CLI Input/Output | IA, CH |
-| Weeks 11-13 | Nov 3 - Nov 24 | Google Compute Routes Matrix integration | CH |
-| Weeks 11-13 | Nov 3 - Nov 24 | Settings and Preferences | IA |
-| Weeks 11-13 | Nov 3 - Nov 24 | Fuel Efficiency Dataset Integration | IA |
-| Weeks 14+ | Nov 24 - Dec 1 | Interface | IA, CH |
+- Week 9 (Oct 20 - Oct 27)
+  - Deliverables: Use Cases, Analysis/Elaboration Models
+  - Assignee: IA, CH
 
+- Week 10 (Oct 27 - Nov 3)
+  - Deliverables:
+    - Sequence Model and Class Diagram for the following use cases.
+      - Get vehicle information (mpg, seats, make, model, year) from the user, create preset.
+      - Input preset into calculator, output CO2 emissions for each preset.
+  - Assignee: IA, CH
+
+- Weeks 10–13 (Nov 3 - Nov 24)
+  - Deliverables:
+    - Algorithm that has MPG and seats as input, travel distance, outputs the CO2 emissions.
+  - Assignee: CH
+
+- Weeks 10–13 (Nov 3 - Nov 24)
+  - Deliverables:
+    - Menu for selecting options (Start a calculation, Manage presets, preferences, exit).
+    - When starting a calculation, ask for the miles of the trip, and perform the C02 calculation for all selected presets.
+    - When managing a preset, ask the user for the make, model, trim, mpg, seats of the car, add this to presets.
+  - Assignee: IA, CH
+
+- Weeks 11–13 (Nov 3 - Nov 24)
+  - Deliverables:
+    - Instead of asking the user for the distance of the trip, ask for the source and destination of the trip.
+    - Make an HTTP request using Calculate Routes Matrix to get the accurate distances for each transportation method.
+  - Assignee: CH
+
+- Weeks 11–13 (Nov 3 - Nov 24)
+  - Deliverables: Settings and Preferences
+  - Assignee: IA
+
+- Weeks 11–13 (Nov 3 - Nov 24)
+  - Deliverables: Fuel Efficiency Dataset Integration
+  - Assignee: IA
+
+- Weeks 14+ (Nov 24 - Dec 1)
+  - Deliverables: Interface
+  - Assignee: IA, CH
 ---
 
 *Last updated: October 20, 2025*
