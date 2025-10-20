@@ -66,18 +66,23 @@ The application will:
 - **Content**: Comprehensive vehicle data including cylinder count, passenger capacity, and fuel efficiency metrics
 - **URL**: [www.fueleconomy.gov/feg/download.shtml](http://www.fueleconomy.gov/feg/download.shtml)
 
-## 3. Project Timeline and Responsibilities
+## 3. Deployment Environment Overview
 
-| Week(s) | Deliverables | Assignee |
-|---------|-------------|----------|
-| Week 9 | Use Cases, Analysis/Elaboration Models | IA, CH |
-| Week 10 | Design Models | IA, CH |
-| Weeks 11-13 | Core algorithms for calculating footprint | CH |
-| Weeks 11-13 | CLI Input/Output | IA, CH |
-| Weeks 11-13 | Google Compute Routes Matrix integration | CH |
-| Weeks 11-13 | Settings and Preferences | IA |
-| Weeks 11-13 | Fuel Efficiency Dataset Integration | IA |
-| Weeks 14+ | Interface | IA, CH |
+We will use Poetry for venv and dependency management, as well as building project deployables. Our project's development structure will follow the pattern set in our initial Rack-O project, split into `src`, `test`, `design`, and other folders. We will use git branches for developing new features and fixing bugs, as well as GitHub's Project feature for tracking, managing, and assigning issues and responsibilities.
+In terms of user runtime environment, we will strive for minimalism, requiring only the Python standard library and an internet connection to use the Google Routes API. If the project progresses to the point of using Django or other frontend-focused resources, we may reassess and add more dependencies. Either way, we will use Poetry to create and manage the final build.
+
+## 4. Project Timeline and Responsibilities
+
+| Week(s) | Dates | Deliverables | Assignee |
+|---------|-------|--------------|----------|
+| Week 9 | Oct 20 - Oct 27 | Use Cases, Analysis/Elaboration Models | IA, CH |
+| Week 10 | Oct 27 - Nov 3 | Design Models | IA, CH |
+| Weeks 11-13 | Nov 3 - Nov 24 | Core algorithms for calculating footprint | CH |
+| Weeks 11-13 | Nov 3 - Nov 24 | CLI Input/Output | IA, CH |
+| Weeks 11-13 | Nov 3 - Nov 24 | Google Compute Routes Matrix integration | CH |
+| Weeks 11-13 | Nov 3 - Nov 24 | Settings and Preferences | IA |
+| Weeks 11-13 | Nov 3 - Nov 24 | Fuel Efficiency Dataset Integration | IA |
+| Weeks 14+ | Nov 24 - Dec 1 | Interface | IA, CH |
 
 ---
 
