@@ -66,16 +66,16 @@ In terms of user runtime environment, we will strive for minimalism, requiring o
 
 ## 4. Project Timeline and Responsibilities
 
-| Week(s) | Deliverables | Assignee |
-|---------|-------------|----------|
-| Week 9 | Use Cases, Analysis/Elaboration Models | IA, CH |
-| Week 10 | Design Models | IA, CH |
-| Weeks 11-13 | Core algorithms for calculating footprint | CH |
-| Weeks 11-13 | CLI Input/Output | IA, CH |
-| Weeks 11-13 | Google Compute Routes Matrix integration | CH |
-| Weeks 11-13 | Settings and Preferences | IA |
-| Weeks 11-13 | Fuel Efficiency Dataset Integration | IA |
-| Weeks 14+ | Interface | IA, CH |
+| Week(s) | Dates | Deliverables | Assignee |
+|---------|-------|--------------|----------|
+| Week 9 | Oct 20 - Oct 27 | Use Cases, Analysis/Elaboration Models | IA, CH |
+| Week 10 | Oct 27 - Nov 3 | Design Models | IA, CH |
+| Weeks 11-13 | Nov 3 - Nov 24 | Core algorithms for calculating footprint | CH |
+| Weeks 11-13 | Nov 3 - Nov 24 | CLI Input/Output | IA, CH |
+| Weeks 11-13 | Nov 3 - Nov 24 | Google Compute Routes Matrix integration | CH |
+| Weeks 11-13 | Nov 3 - Nov 24 | Settings and Preferences | IA |
+| Weeks 11-13 | Nov 3 - Nov 24 | Fuel Efficiency Dataset Integration | IA |
+| Weeks 14+ | Nov 24 - Dec 1 | Interface | IA, CH |
 
 ---
 
