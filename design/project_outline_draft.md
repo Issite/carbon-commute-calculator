@@ -32,10 +32,27 @@ The application will:
 
 ### External Systems
 1. **Google Routes API**
-2. **US Department of Energy's fuel economy data**
-3. **Hosting services** (for potential web application expansion)
+- **Creator**: Google
+- **Description**: Publicly available API providing distance, time, and route information in JSON format
+- **Release Date**: May 2023 (builds upon Distance Matrix API from 2005)
+- **Input Requirements**: origin, destination, travelMode, and field mask
+- **Request Method**: POST HTTP request
+- **Usage Limits**: 10,000 free calls per project
+- **URL**: [Google Routes API Documentation](https://developers.google.com/maps/documentation/routes?hl=en)
+2. **Hosting services** (for potential web application expansion)
 
 ## 2. Application Domain Data
+
+### Use Cases
+  1. A user provides details for their vehicle and recieves fuel efficiency and C02 emissions for their vehicle.
+    - make
+    - model
+    - year
+    - trim
+  2. A user can also input a travel destination (and source) to see the Carbon Footprint of their vehicle alongside the carbon footprint of public transportation options.
+  3. User is able to save vehicles as presets, and select from them for given trips.
+  4. User selects which presets/public transportation options should be displayed.
+  5. User can set occurnances for trips, and see their transportation carbon footprint for the day/week/month/year.
 
 ### Dataset 1: Fuel Economy Data
 
@@ -48,16 +65,6 @@ The application will:
 - **Latest Update**: October 6th, 2025
 - **Content**: Comprehensive vehicle data including cylinder count, passenger capacity, and fuel efficiency metrics
 - **URL**: [www.fueleconomy.gov/feg/download.shtml](http://www.fueleconomy.gov/feg/download.shtml)
-
-### Dataset 2: Compute Routes Matrix
-
-- **Creator**: Google
-- **Description**: Publicly available API providing distance, time, and route information in JSON format
-- **Release Date**: May 2023 (builds upon Distance Matrix API from 2005)
-- **Input Requirements**: origin, destination, travelMode, and field mask
-- **Request Method**: POST HTTP request
-- **Usage Limits**: 10,000 free calls per project
-- **URL**: [Google Routes API Documentation](https://developers.google.com/maps/documentation/routes?hl=en)
 
 ## 3. Project Timeline and Responsibilities
 
