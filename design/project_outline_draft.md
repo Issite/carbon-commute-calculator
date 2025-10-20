@@ -59,7 +59,12 @@ The application will:
 - **Usage Limits**: 10,000 free calls per project
 - **URL**: [Google Routes API Documentation](https://developers.google.com/maps/documentation/routes?hl=en)
 
-## 3. Project Timeline and Responsibilities
+## 3. Deployment Environment Overview
+
+We will use Poetry for venv and dependency management, as well as building project deployables. Our project's development structure will follow the pattern set in our initial Rack-O project, split into `src`, `test`, `design`, and other folders. We will use git branches for developing new features and fixing bugs, as well as GitHub's Project feature for tracking, managing, and assigning issues and responsibilities.
+In terms of user runtime environment, we will strive for minimalism, requiring only the Python standard library and an internet connection to use the Google Routes API. If the project progresses to the point of using Django or other frontend-focused resources, we may reassess and add more dependencies. Either way, we will use Poetry to create and manage the final build.
+
+## 4. Project Timeline and Responsibilities
 
 | Week(s) | Deliverables | Assignee |
 |---------|-------------|----------|
