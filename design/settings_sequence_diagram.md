@@ -7,15 +7,11 @@
 
         User->>System: Open Settings
 
-        loop
-                System->>System: Display Settings
-                User->>System: Add Vehicle
-                User->>System: Edit Vehicle
-                System->>Vehicle Dataset: Get Vehicle Data
-                System->>System: Save Vehicle
-
-                User->>System: Select Preferences
-                System->>System: Save Preferences
+        loop until exit
+            System->>System: Display Settings
+            User->>System: Select Setting
+            User->>System: Change Setting
+            
+            System->>System: Save Settings
         end
-        
 ```
