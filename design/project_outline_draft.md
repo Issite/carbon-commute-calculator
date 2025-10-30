@@ -74,7 +74,11 @@ In terms of user runtime environment, we will strive for minimalism, requiring o
 ## 4. Project Timeline and Responsibilities
 
 - Week 9 (Oct 20 - Oct 27)
-  - Deliverables: Use Cases, Analysis/Elaboration Models
+  - Deliverables:
+    - Use cases
+    - Domain Model
+    - System Sequence Diagram
+    - Glossary
   - Assignee: IA, CH
 
 - Week 10 (Oct 27 - Nov 3)
@@ -103,11 +107,21 @@ In terms of user runtime environment, we will strive for minimalism, requiring o
   - Assignee: CH
 
 - Weeks 11–13 (Nov 3 - Nov 24)
-  - Deliverables: Settings and Preferences
+  - Deliverables:
+    - Allow users to change default settings for transportation options displayed
+    - Implement preset options for
+      - Vehicle presets (make, model, year, trim)
+      - Route presets (distances, road types)
+    - Save and load user preferences between sessions
+    - Provide an export feature for precalculated carbon footprint data
   - Assignee: IA
 
 - Weeks 11–13 (Nov 3 - Nov 24)
-  - Deliverables: Fuel Efficiency Dataset Integration
+  - Deliverables:
+    - Read and parse the dataset into usable data structures
+    - Implement search functionality to find vehicle data based on user input (make, model, year, trim)
+    - (Potentially) pare down dataset to only include relevant fields for efficiency
+    - Handle edge cases where vehicle data is not found or incomplete
   - Assignee: IA
 
 - Weeks 14+ (Nov 24 - Dec 1)
