@@ -11,3 +11,7 @@ Moving forward:
      - keep glossary current
      - revise models and diagrams as needed
      - write all tests
+
+11/3/2025 Class Notes
+- Write out English use case scenarios before diagrams
+- 
