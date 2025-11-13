@@ -1,0 +1,16 @@
+[project]
+name = "carbon-commute"
+version = "0.1.0"
+description = "What if we stopped driving and saved the trees?  An application to calculate and manage your carbon footprint based of off your commuting methods."
+authors = [
+    {name = "Caleb Hazelton",email = "caleb.hazelton@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
