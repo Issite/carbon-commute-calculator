@@ -37,7 +37,7 @@ Statistics (lifetime and average statistics)
 : Aggregated metrics computed from saved trips and presets. Examples include lifetime emissions, average emissions per trip, and emissions by time window (day/week/month/year).
 
 Settings / Preferences
-: User-configurable options that control app behavior and what travel types or Vehicles are displayed/saved.
+: User-configurable options that control app behavior and what travel types or Vehicles are displayed/saved. Settings includes both pre-saved vehicles and app preferences.
 
 CO2 emissions / Carbon footprint
 : The calculated greenhouse gas impact of travel, typically expressed as kilograms or metric tons of CO2-equivalent for a trip or for an aggregated period.
