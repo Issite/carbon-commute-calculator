@@ -1,0 +1,1 @@
+# Class containing route object, vehicle object, and methods to calculate total emissions for a trip.

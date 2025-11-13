@@ -1,0 +1,1 @@
+# Class for vehicle object, including make, model, year, fuel type, and emissions data, handling the HTTP request to the Vehicle Emissions API
