@@ -8,6 +8,6 @@ class Vehicle:
         self.seats = seats
         self.emissions_data = self.fetch_emissions_data()
 
-    def fetch_emissions_data(self):
+    def fetch_fuel_data(self):
         # Placeholder for HTTP request to Vehicle Emissions API
         pass
