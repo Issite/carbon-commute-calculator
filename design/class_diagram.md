@@ -2,12 +2,12 @@
 classDiagram
 
     class Trip
-        Trip: +vehicle vehicle
-        Trip: +route route
-        Trip: +int occupancy
-        Trip: +int occurance
-        Trip: +int frequency
-        Trip: +float footprint
+        Trip: -vehicle vehicle
+        Trip: -route route
+        Trip: -int occupancy
+        Trip: -int occurance
+        Trip: -int frequency
+        Trip: -float footprint
         Trip :calculate_footprint(vehicle, route, occupancy)
         Trip :add_route()
         Trip :set_occupancy(int)
@@ -15,25 +15,25 @@ classDiagram
         Trip :set_frequency(int)
 
     class Vehicle
-        Vehicle: +string Make
-        Vehicle: +string Model
-        Vehicle: +int year
-        Vehicle: +float efficiency
-        Vehicle: +string fuel_type
-        Vehicle: +bool enabled
+        Vehicle: -string Make
+        Vehicle: -string Model
+        Vehicle: -int year
+        Vehicle: -float efficiency
+        Vehicle: -string fuel_type
+        Vehicle: -bool enabled
         Vehicle :get_fuel_data(make, model, trim, year)
 
     class Route
-        Route: +string origin
-        Route: +string destination
-        Route: +string travel_method
-        Route: +float distance
-        Route: +int time
+        Route: -string origin
+        Route: -string destination
+        Route: -string travel_method
+        Route: -float distance
+        Route: -int time
         Route :get_route_data(origin, destination, travel_method)
 
     class User
-        User: +trip[] saved_trips
-        User: +vehicles[] saved_vehicles
+        User: -trip[] saved_trips
+        User: -vehicles[] saved_vehicles
         User :add_trip()
         User :add_vehicle()
         User :display_stats()
@@ -44,9 +44,9 @@ classDiagram
     class API_FuelEfficiencyData
     
 
-    Trip *-- Route : __init__(origin, destination, travel_method)
-    User *-- Trip : __init__(vehicle)
-    User *-- Vehicle : __init__(make, model, year)
+    Trip *-- Route : 
+    User --> Trip : 
+    Trip *-- Vehicle : 
     Route ..> API_RoutesMatrix : HTTP call from get_route_data()
     Vehicle ..> API_FuelEfficiencyData : HTTP call from get_fuel_data()
 
