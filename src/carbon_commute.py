@@ -8,11 +8,11 @@ class CarbonCommute:
     def run(self):
         pass
 
-    def add_trip(self):
+    def calculator(self):
         pass
 
     def add_vehicle(self):
         pass
-    
+
     def view_summary(self):
         pass

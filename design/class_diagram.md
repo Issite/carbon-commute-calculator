@@ -47,6 +47,7 @@ classDiagram
     Trip *-- Route : 
     User --> Trip : 
     Trip *-- Vehicle : 
+    User --> Vehicle
     Route ..> API_RoutesMatrix : HTTP call from get_route_data()
     Vehicle ..> API_FuelEfficiencyData : HTTP call from get_fuel_data()
 
