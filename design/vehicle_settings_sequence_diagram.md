@@ -14,7 +14,6 @@
                 System->>Vehicle Dataset: Get Vehicle Data
                 System->>System: Save Vehicle
 
-                User->>System: Select Preferences
                 System->>System: Save Preferences
         end
         
