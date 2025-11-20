@@ -4,7 +4,7 @@ class Vehicle:
         self.make = make
         self.model = model
         self.year = year
-        self.fuel_type = fuel_type
+        self.fuel_type = fuel_type #Gasoline, Diesel, Electric
         self.seats = seats
         self.emissions_data = self.fetch_emissions_data()
 
