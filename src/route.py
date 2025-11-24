@@ -6,7 +6,10 @@ route metrics such as distance. The real implementation should call
 an external routing API (for example, Google Routes API) to populate
 the distance and other route metadata.
 """
-
+from dotenv import load_dotenv
+import os
+import requests
+import json
 
 class Route:
     """Represent a travel route between an origin and a destination.
@@ -35,6 +38,57 @@ class Route:
             The distance for the route in miles.
         """
         # Placeholder for HTTP request to Google Route Matrix API
-        if self.distance == 0:
-            self.distance = 100  # Placeholder distance in miles to prevent failure, replace this with API
+        #if self.distance == 0:
+        #    self.distance = 100  # Placeholder distance in miles to prevent failure, replace this with API
+        #return self.distance
+        load_dotenv()
+
+        API_KEY = os.getenv("GOOGLE_API_KEY") # DO NOT PUSH THIS TO PUBLIC REPO
+        url = "https://routes.googleapis.com/directions/v2:computeRoutes"
+
+        headers = {
+            "Content-Type": "application/json",
+            "X-Goog-Api-Key": API_KEY,
+            "X-Goog-FieldMask": "routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline"
+        }
+
+        body = {
+            "origin": {
+                "address": self.origin
+            },
+            "destination": {
+                "address": self.destination
+            },
+            "travelMode": "DRIVE",
+            "routingPreference": "TRAFFIC_AWARE",
+            "computeAlternativeRoutes": False,
+            "routeModifiers": {
+                "avoidTolls": False,
+                "avoidHighways": False,
+                "avoidFerries": False
+            },
+            "languageCode": "en-US",
+            "units": "METRIC"
+        }
+
+        response = requests.post(url, headers=headers, data=json.dumps(body))
+
+        data = response.json()
+        distance_meters = data["routes"][0]["distanceMeters"]
+        self.distance = self.meters_to_miles(distance_meters)
         return self.distance
+
+    def meters_to_miles(self, meters: float) -> float:
+        """Convert meters to miles.
+
+        Parameters
+        ----------
+        meters : float
+            Distance in meters.
+
+        Returns
+        -------
+        float
+            Distance in miles.
+        """
+        return meters * 0.000621371
