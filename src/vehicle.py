@@ -47,6 +47,11 @@ class Vehicle:
         year = int(input("Enter vehicle year: "))
         seats = int(input("Enter number of seats: "))
         return Vehicle(make, model, year, seats)
+    
+    def manage(self):
+        """
+        
+        """
 
     @staticmethod
     def fetch_economy_data(make: str, model: str, year: int)->dict:
