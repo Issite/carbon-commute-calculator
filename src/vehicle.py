@@ -133,7 +133,7 @@ class Vehicle:
         elif driving_type == "highway":
             return float(self.economy_data["highway08"])
         else:
-            raise ValueError("driving_type must be either 'city' or 'highway'")
+            return float(self.economy_data["comb08"])
         
     def to_dict(self)->dict:
         """
