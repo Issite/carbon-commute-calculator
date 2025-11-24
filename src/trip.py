@@ -48,8 +48,8 @@ class Trip:
             Estimated total emissions for the trip in lbs CO2.
         """
         distance = self.route.distance
-        emissions = self.vehicle.emissions_data
-        gallons_used = distance / emissions
+        mpg = self.vehicle.get_mpg("city") # Placeholder, will select between city/highway later
+        gallons_used = distance / mpg
         if self.vehicle.fuel_type == "Gasoline":
             total_emissions = (gallons_used * 19.6) / self.passengers  # Assuming 19.6 lbs CO2 per gallon of gasoline
         elif self.vehicle.fuel_type == "Diesel":
