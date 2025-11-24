@@ -73,10 +73,10 @@ class CarbonCommute:
         
         #Occurance is the number of times the trip occurs within the frequency (days) period.
         frequency = int(input("Enter the frequency of the trip in days (e.g., 7 for a week, 30 for a month): "))
-        occurance = int(input("Enter the number of times this trip occurs in the given frequency: "))
+        occurrence = int(input("Enter the number of times this trip occurs in the given frequency: "))
         passengers = int(input("Enter the number of passengers in the vehicle: "))
 
-        trip = Trip(route, selected_vehicle, frequency, occurance, passengers)
+        trip = Trip(route, selected_vehicle, frequency, occurrence, passengers)
         self.trips.append(trip)
 
         print(f"Trip added! Total emissions for this trip: {trip.total_emissions} lbs CO2")
@@ -101,9 +101,9 @@ class CarbonCommute:
         for trip in self.trips:
             print(f"Trip from {trip.route.origin} to {trip.route.destination}: {trip.total_emissions} lbs CO2")
 
-        weekly_emissions = sum(trip.total_emissions*(trip.occurance / trip.frequency)*7 for trip in self.trips)
-        monthly_emissions = sum(trip.total_emissions*(trip.occurance / trip.frequency)*30 for trip in self.trips)
-        yearly_emissions = sum(trip.total_emissions*(trip.occurance / trip.frequency)*365 for trip in self.trips)
+        weekly_emissions = round(sum(trip.total_emissions*(trip.occurrence / trip.frequency)*7 for trip in self.trips), 2)
+        monthly_emissions = round(sum(trip.total_emissions*(trip.occurrence / trip.frequency)*30 for trip in self.trips), 2)
+        yearly_emissions = round(sum(trip.total_emissions*(trip.occurrence / trip.frequency)*365 for trip in self.trips), 2)
 
         print(f"Weekly Emissions: {weekly_emissions} lbs CO2")
         print(f"Monthly Emissions: {monthly_emissions} lbs CO2")

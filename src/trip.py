@@ -23,7 +23,7 @@ class Trip:
         Number of passengers occupying the vehicle for the trip.
     """
 
-    def __init__(self, route, vehicle, frequency=0, occurance=1, passengers=1):
+    def __init__(self, route, vehicle, frequency=0, occurrence=1, passengers=1):
         """Initialize a :class:`Trip`.
 
         :param route Route: The route for the trip.
@@ -35,9 +35,9 @@ class Trip:
         self.route = route
         self.vehicle = vehicle
         self.frequency = frequency
-        self.occurance = occurance
+        self.occurrence = occurrence
         self.passengers = passengers
-        self.total_emissions = self.calculate_emissions()
+        self.total_emissions = round(self.calculate_emissions(), 2)
 
     def calculate_emissions(self):
         """Estimate CO2 emissions for this trip.
@@ -61,4 +61,4 @@ class Trip:
         else:
             print(f"Unknown fuel type {self.vehicle.fuel_type}, using default emission factor.")
             total_emissions = (gallons_used * 20) / self.passengers  # Default case for unknown fuel types
-        return total_emissions * self.frequency * self.occurance
+        return total_emissions
