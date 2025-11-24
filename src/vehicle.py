@@ -11,7 +11,7 @@ import csv
 class Vehicle:
     """Represent a vehicle and its emissions-related attributes."""
 
-    def __init__(self, make, model, year, seats):
+    def __init__(self, make:str, model:str, year:int, seats:int):
         """Initialize a :class:`Vehicle` instance.
         
         Parameters
@@ -92,10 +92,28 @@ class Vehicle:
         Returns
         -------
         dict
-            A dictionary of economy data for the vehicle.
+            A dictionary of economy data for the vehicle, or None if not found.
         """
         csv_reader = csv.DictReader(open('data/vehicles.csv'))
         return next((row for row in csv_reader if row["make"] == make and row["model"] == model and row["year"] == str(year)), None)
+    
+    @staticmethod
+    def economy_data_for_id(id: int)->dict:
+        """
+        Fetch fuel/economy data for a vehicle by its economy ID.
+
+        Parameters
+        ----------
+        id : int
+            The vehicle's economy ID.
+
+        Returns
+        -------
+        dict
+            A dictionary of economy data for the vehicle, or None if not found.
+        """
+        csv_reader = csv.DictReader(open('data/vehicles.csv'))
+        return next((row for row in csv_reader if row["id"] == str(id)), None)
     
     def get_mpg(self, driving_type: str)->float:
         """Get the vehicle's MPG for a given driving type.
@@ -116,3 +134,43 @@ class Vehicle:
             return float(self.economy_data["highway08"])
         else:
             raise ValueError("driving_type must be either 'city' or 'highway'")
+        
+    def to_dict(self)->dict:
+        """
+        Convert the Vehicle instance to a JSON-serializable dictionary.
+
+        Returns
+        -------
+        dict
+            A dictionary representation of the Vehicle instance.
+        """
+        return {
+            "make": self.make,
+            "model": self.model,
+            "year": self.year,
+            "seats": self.seats,
+            "economy_id": self.economy_id
+        }
+    
+    @staticmethod
+    def from_dict(data: dict)-> 'Vehicle':
+        """
+        Create a Vehicle instance from a dictionary.
+
+        Parameters
+        ----------
+        data : dict
+            A dictionary containing vehicle attributes.
+
+        Returns
+        -------
+        Vehicle
+            A new Vehicle instance.
+        """
+        vehicle = Vehicle(
+            make=data["make"],
+            model=data["model"],
+            year=data["year"],
+            seats=data["seats"]
+        )
+        return vehicle
