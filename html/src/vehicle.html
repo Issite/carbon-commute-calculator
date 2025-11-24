@@ -153,42 +153,40 @@ interactions are placeholders.</p>
 </span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a><span class="sd">        </span>
 </span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a><span class="sd">        Parameters</span>
 </span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a><span class="sd">        ----------</span>
-</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a><span class="sd">        - make: str</span>
+</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a><span class="sd">        make: str</span>
 </span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a><span class="sd">            The vehicle&#39;s manufacturer.</span>
-</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a>
-</span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a><span class="sd">        - model: str</span>
-</span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a><span class="sd">            The vehicle&#39;s model name.</span>
-</span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a>
-</span><span id="L-63"><a href="#L-63"><span class="linenos">63</span></a><span class="sd">        - year: int</span>
-</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a><span class="sd">            The vehicle&#39;s model year.</span>
-</span><span id="L-65"><a href="#L-65"><span class="linenos">65</span></a><span class="sd">        </span>
-</span><span id="L-66"><a href="#L-66"><span class="linenos">66</span></a><span class="sd">        Returns</span>
-</span><span id="L-67"><a href="#L-67"><span class="linenos">67</span></a><span class="sd">        -------</span>
-</span><span id="L-68"><a href="#L-68"><span class="linenos">68</span></a><span class="sd">        dict</span>
-</span><span id="L-69"><a href="#L-69"><span class="linenos">69</span></a><span class="sd">            A dictionary of economy data for the vehicle.</span>
-</span><span id="L-70"><a href="#L-70"><span class="linenos">70</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-71"><a href="#L-71"><span class="linenos">71</span></a>        <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/vehicles.csv&#39;</span><span class="p">))</span>
-</span><span id="L-72"><a href="#L-72"><span class="linenos">72</span></a>        <span class="k">return</span> <span class="nb">next</span><span class="p">((</span><span class="n">row</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_reader</span> <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;make&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">make</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">model</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)),</span> <span class="kc">None</span><span class="p">)</span>
-</span><span id="L-73"><a href="#L-73"><span class="linenos">73</span></a>    
-</span><span id="L-74"><a href="#L-74"><span class="linenos">74</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_mpg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">driving_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">float</span><span class="p">:</span>
-</span><span id="L-75"><a href="#L-75"><span class="linenos">75</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the vehicle&#39;s MPG for a given driving type.</span>
-</span><span id="L-76"><a href="#L-76"><span class="linenos">76</span></a>
-</span><span id="L-77"><a href="#L-77"><span class="linenos">77</span></a><span class="sd">        Parameters</span>
-</span><span id="L-78"><a href="#L-78"><span class="linenos">78</span></a><span class="sd">        ----------</span>
-</span><span id="L-79"><a href="#L-79"><span class="linenos">79</span></a><span class="sd">        driving_type : str</span>
-</span><span id="L-80"><a href="#L-80"><span class="linenos">80</span></a><span class="sd">            Either &quot;city&quot; or &quot;highway&quot;.</span>
-</span><span id="L-81"><a href="#L-81"><span class="linenos">81</span></a>
-</span><span id="L-82"><a href="#L-82"><span class="linenos">82</span></a><span class="sd">        Returns</span>
-</span><span id="L-83"><a href="#L-83"><span class="linenos">83</span></a><span class="sd">        -------</span>
-</span><span id="L-84"><a href="#L-84"><span class="linenos">84</span></a><span class="sd">        float</span>
-</span><span id="L-85"><a href="#L-85"><span class="linenos">85</span></a><span class="sd">            The MPG value for the specified driving type.</span>
-</span><span id="L-86"><a href="#L-86"><span class="linenos">86</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-87"><a href="#L-87"><span class="linenos">87</span></a>        <span class="k">if</span> <span class="n">driving_type</span> <span class="o">==</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span>
-</span><span id="L-88"><a href="#L-88"><span class="linenos">88</span></a>            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">economy_data</span><span class="p">[</span><span class="s2">&quot;city08&quot;</span><span class="p">])</span>
-</span><span id="L-89"><a href="#L-89"><span class="linenos">89</span></a>        <span class="k">elif</span> <span class="n">driving_type</span> <span class="o">==</span> <span class="s2">&quot;highway&quot;</span><span class="p">:</span>
-</span><span id="L-90"><a href="#L-90"><span class="linenos">90</span></a>            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">economy_data</span><span class="p">[</span><span class="s2">&quot;highway08&quot;</span><span class="p">])</span>
-</span><span id="L-91"><a href="#L-91"><span class="linenos">91</span></a>        <span class="k">else</span><span class="p">:</span>
-</span><span id="L-92"><a href="#L-92"><span class="linenos">92</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;driving_type must be either &#39;city&#39; or &#39;highway&#39;&quot;</span><span class="p">)</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a><span class="sd">        model: str</span>
+</span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a><span class="sd">            The vehicle&#39;s model name.</span>
+</span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a><span class="sd">        year: int</span>
+</span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a><span class="sd">            The vehicle&#39;s model year.</span>
+</span><span id="L-63"><a href="#L-63"><span class="linenos">63</span></a><span class="sd">        </span>
+</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a><span class="sd">        Returns</span>
+</span><span id="L-65"><a href="#L-65"><span class="linenos">65</span></a><span class="sd">        -------</span>
+</span><span id="L-66"><a href="#L-66"><span class="linenos">66</span></a><span class="sd">        dict</span>
+</span><span id="L-67"><a href="#L-67"><span class="linenos">67</span></a><span class="sd">            A dictionary of economy data for the vehicle.</span>
+</span><span id="L-68"><a href="#L-68"><span class="linenos">68</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-69"><a href="#L-69"><span class="linenos">69</span></a>        <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/vehicles.csv&#39;</span><span class="p">))</span>
+</span><span id="L-70"><a href="#L-70"><span class="linenos">70</span></a>        <span class="k">return</span> <span class="nb">next</span><span class="p">((</span><span class="n">row</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_reader</span> <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;make&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">make</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">model</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)),</span> <span class="kc">None</span><span class="p">)</span>
+</span><span id="L-71"><a href="#L-71"><span class="linenos">71</span></a>    
+</span><span id="L-72"><a href="#L-72"><span class="linenos">72</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_mpg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">driving_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">float</span><span class="p">:</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos">73</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the vehicle&#39;s MPG for a given driving type.</span>
+</span><span id="L-74"><a href="#L-74"><span class="linenos">74</span></a>
+</span><span id="L-75"><a href="#L-75"><span class="linenos">75</span></a><span class="sd">        Parameters</span>
+</span><span id="L-76"><a href="#L-76"><span class="linenos">76</span></a><span class="sd">        ----------</span>
+</span><span id="L-77"><a href="#L-77"><span class="linenos">77</span></a><span class="sd">        driving_type : str</span>
+</span><span id="L-78"><a href="#L-78"><span class="linenos">78</span></a><span class="sd">            Either &quot;city&quot; or &quot;highway&quot;.</span>
+</span><span id="L-79"><a href="#L-79"><span class="linenos">79</span></a>
+</span><span id="L-80"><a href="#L-80"><span class="linenos">80</span></a><span class="sd">        Returns</span>
+</span><span id="L-81"><a href="#L-81"><span class="linenos">81</span></a><span class="sd">        -------</span>
+</span><span id="L-82"><a href="#L-82"><span class="linenos">82</span></a><span class="sd">        float</span>
+</span><span id="L-83"><a href="#L-83"><span class="linenos">83</span></a><span class="sd">            The MPG value for the specified driving type.</span>
+</span><span id="L-84"><a href="#L-84"><span class="linenos">84</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-85"><a href="#L-85"><span class="linenos">85</span></a>        <span class="k">if</span> <span class="n">driving_type</span> <span class="o">==</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span>
+</span><span id="L-86"><a href="#L-86"><span class="linenos">86</span></a>            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">economy_data</span><span class="p">[</span><span class="s2">&quot;city08&quot;</span><span class="p">])</span>
+</span><span id="L-87"><a href="#L-87"><span class="linenos">87</span></a>        <span class="k">elif</span> <span class="n">driving_type</span> <span class="o">==</span> <span class="s2">&quot;highway&quot;</span><span class="p">:</span>
+</span><span id="L-88"><a href="#L-88"><span class="linenos">88</span></a>            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">economy_data</span><span class="p">[</span><span class="s2">&quot;highway08&quot;</span><span class="p">])</span>
+</span><span id="L-89"><a href="#L-89"><span class="linenos">89</span></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="L-90"><a href="#L-90"><span class="linenos">90</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;driving_type must be either &#39;city&#39; or &#39;highway&#39;&quot;</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -250,42 +248,40 @@ interactions are placeholders.</p>
 </span><span id="Vehicle-55"><a href="#Vehicle-55"><span class="linenos">55</span></a><span class="sd">        </span>
 </span><span id="Vehicle-56"><a href="#Vehicle-56"><span class="linenos">56</span></a><span class="sd">        Parameters</span>
 </span><span id="Vehicle-57"><a href="#Vehicle-57"><span class="linenos">57</span></a><span class="sd">        ----------</span>
-</span><span id="Vehicle-58"><a href="#Vehicle-58"><span class="linenos">58</span></a><span class="sd">        - make: str</span>
+</span><span id="Vehicle-58"><a href="#Vehicle-58"><span class="linenos">58</span></a><span class="sd">        make: str</span>
 </span><span id="Vehicle-59"><a href="#Vehicle-59"><span class="linenos">59</span></a><span class="sd">            The vehicle&#39;s manufacturer.</span>
-</span><span id="Vehicle-60"><a href="#Vehicle-60"><span class="linenos">60</span></a>
-</span><span id="Vehicle-61"><a href="#Vehicle-61"><span class="linenos">61</span></a><span class="sd">        - model: str</span>
-</span><span id="Vehicle-62"><a href="#Vehicle-62"><span class="linenos">62</span></a><span class="sd">            The vehicle&#39;s model name.</span>
-</span><span id="Vehicle-63"><a href="#Vehicle-63"><span class="linenos">63</span></a>
-</span><span id="Vehicle-64"><a href="#Vehicle-64"><span class="linenos">64</span></a><span class="sd">        - year: int</span>
-</span><span id="Vehicle-65"><a href="#Vehicle-65"><span class="linenos">65</span></a><span class="sd">            The vehicle&#39;s model year.</span>
-</span><span id="Vehicle-66"><a href="#Vehicle-66"><span class="linenos">66</span></a><span class="sd">        </span>
-</span><span id="Vehicle-67"><a href="#Vehicle-67"><span class="linenos">67</span></a><span class="sd">        Returns</span>
-</span><span id="Vehicle-68"><a href="#Vehicle-68"><span class="linenos">68</span></a><span class="sd">        -------</span>
-</span><span id="Vehicle-69"><a href="#Vehicle-69"><span class="linenos">69</span></a><span class="sd">        dict</span>
-</span><span id="Vehicle-70"><a href="#Vehicle-70"><span class="linenos">70</span></a><span class="sd">            A dictionary of economy data for the vehicle.</span>
-</span><span id="Vehicle-71"><a href="#Vehicle-71"><span class="linenos">71</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="Vehicle-72"><a href="#Vehicle-72"><span class="linenos">72</span></a>        <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/vehicles.csv&#39;</span><span class="p">))</span>
-</span><span id="Vehicle-73"><a href="#Vehicle-73"><span class="linenos">73</span></a>        <span class="k">return</span> <span class="nb">next</span><span class="p">((</span><span class="n">row</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_reader</span> <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;make&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">make</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">model</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)),</span> <span class="kc">None</span><span class="p">)</span>
-</span><span id="Vehicle-74"><a href="#Vehicle-74"><span class="linenos">74</span></a>    
-</span><span id="Vehicle-75"><a href="#Vehicle-75"><span class="linenos">75</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_mpg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">driving_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">float</span><span class="p">:</span>
-</span><span id="Vehicle-76"><a href="#Vehicle-76"><span class="linenos">76</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the vehicle&#39;s MPG for a given driving type.</span>
-</span><span id="Vehicle-77"><a href="#Vehicle-77"><span class="linenos">77</span></a>
-</span><span id="Vehicle-78"><a href="#Vehicle-78"><span class="linenos">78</span></a><span class="sd">        Parameters</span>
-</span><span id="Vehicle-79"><a href="#Vehicle-79"><span class="linenos">79</span></a><span class="sd">        ----------</span>
-</span><span id="Vehicle-80"><a href="#Vehicle-80"><span class="linenos">80</span></a><span class="sd">        driving_type : str</span>
-</span><span id="Vehicle-81"><a href="#Vehicle-81"><span class="linenos">81</span></a><span class="sd">            Either &quot;city&quot; or &quot;highway&quot;.</span>
-</span><span id="Vehicle-82"><a href="#Vehicle-82"><span class="linenos">82</span></a>
-</span><span id="Vehicle-83"><a href="#Vehicle-83"><span class="linenos">83</span></a><span class="sd">        Returns</span>
-</span><span id="Vehicle-84"><a href="#Vehicle-84"><span class="linenos">84</span></a><span class="sd">        -------</span>
-</span><span id="Vehicle-85"><a href="#Vehicle-85"><span class="linenos">85</span></a><span class="sd">        float</span>
-</span><span id="Vehicle-86"><a href="#Vehicle-86"><span class="linenos">86</span></a><span class="sd">            The MPG value for the specified driving type.</span>
-</span><span id="Vehicle-87"><a href="#Vehicle-87"><span class="linenos">87</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="Vehicle-88"><a href="#Vehicle-88"><span class="linenos">88</span></a>        <span class="k">if</span> <span class="n">driving_type</span> <span class="o">==</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span>
-</span><span id="Vehicle-89"><a href="#Vehicle-89"><span class="linenos">89</span></a>            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">economy_data</span><span class="p">[</span><span class="s2">&quot;city08&quot;</span><span class="p">])</span>
-</span><span id="Vehicle-90"><a href="#Vehicle-90"><span class="linenos">90</span></a>        <span class="k">elif</span> <span class="n">driving_type</span> <span class="o">==</span> <span class="s2">&quot;highway&quot;</span><span class="p">:</span>
-</span><span id="Vehicle-91"><a href="#Vehicle-91"><span class="linenos">91</span></a>            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">economy_data</span><span class="p">[</span><span class="s2">&quot;highway08&quot;</span><span class="p">])</span>
-</span><span id="Vehicle-92"><a href="#Vehicle-92"><span class="linenos">92</span></a>        <span class="k">else</span><span class="p">:</span>
-</span><span id="Vehicle-93"><a href="#Vehicle-93"><span class="linenos">93</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;driving_type must be either &#39;city&#39; or &#39;highway&#39;&quot;</span><span class="p">)</span>
+</span><span id="Vehicle-60"><a href="#Vehicle-60"><span class="linenos">60</span></a><span class="sd">        model: str</span>
+</span><span id="Vehicle-61"><a href="#Vehicle-61"><span class="linenos">61</span></a><span class="sd">            The vehicle&#39;s model name.</span>
+</span><span id="Vehicle-62"><a href="#Vehicle-62"><span class="linenos">62</span></a><span class="sd">        year: int</span>
+</span><span id="Vehicle-63"><a href="#Vehicle-63"><span class="linenos">63</span></a><span class="sd">            The vehicle&#39;s model year.</span>
+</span><span id="Vehicle-64"><a href="#Vehicle-64"><span class="linenos">64</span></a><span class="sd">        </span>
+</span><span id="Vehicle-65"><a href="#Vehicle-65"><span class="linenos">65</span></a><span class="sd">        Returns</span>
+</span><span id="Vehicle-66"><a href="#Vehicle-66"><span class="linenos">66</span></a><span class="sd">        -------</span>
+</span><span id="Vehicle-67"><a href="#Vehicle-67"><span class="linenos">67</span></a><span class="sd">        dict</span>
+</span><span id="Vehicle-68"><a href="#Vehicle-68"><span class="linenos">68</span></a><span class="sd">            A dictionary of economy data for the vehicle.</span>
+</span><span id="Vehicle-69"><a href="#Vehicle-69"><span class="linenos">69</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="Vehicle-70"><a href="#Vehicle-70"><span class="linenos">70</span></a>        <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/vehicles.csv&#39;</span><span class="p">))</span>
+</span><span id="Vehicle-71"><a href="#Vehicle-71"><span class="linenos">71</span></a>        <span class="k">return</span> <span class="nb">next</span><span class="p">((</span><span class="n">row</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_reader</span> <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;make&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">make</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">model</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)),</span> <span class="kc">None</span><span class="p">)</span>
+</span><span id="Vehicle-72"><a href="#Vehicle-72"><span class="linenos">72</span></a>    
+</span><span id="Vehicle-73"><a href="#Vehicle-73"><span class="linenos">73</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_mpg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">driving_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">float</span><span class="p">:</span>
+</span><span id="Vehicle-74"><a href="#Vehicle-74"><span class="linenos">74</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the vehicle&#39;s MPG for a given driving type.</span>
+</span><span id="Vehicle-75"><a href="#Vehicle-75"><span class="linenos">75</span></a>
+</span><span id="Vehicle-76"><a href="#Vehicle-76"><span class="linenos">76</span></a><span class="sd">        Parameters</span>
+</span><span id="Vehicle-77"><a href="#Vehicle-77"><span class="linenos">77</span></a><span class="sd">        ----------</span>
+</span><span id="Vehicle-78"><a href="#Vehicle-78"><span class="linenos">78</span></a><span class="sd">        driving_type : str</span>
+</span><span id="Vehicle-79"><a href="#Vehicle-79"><span class="linenos">79</span></a><span class="sd">            Either &quot;city&quot; or &quot;highway&quot;.</span>
+</span><span id="Vehicle-80"><a href="#Vehicle-80"><span class="linenos">80</span></a>
+</span><span id="Vehicle-81"><a href="#Vehicle-81"><span class="linenos">81</span></a><span class="sd">        Returns</span>
+</span><span id="Vehicle-82"><a href="#Vehicle-82"><span class="linenos">82</span></a><span class="sd">        -------</span>
+</span><span id="Vehicle-83"><a href="#Vehicle-83"><span class="linenos">83</span></a><span class="sd">        float</span>
+</span><span id="Vehicle-84"><a href="#Vehicle-84"><span class="linenos">84</span></a><span class="sd">            The MPG value for the specified driving type.</span>
+</span><span id="Vehicle-85"><a href="#Vehicle-85"><span class="linenos">85</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="Vehicle-86"><a href="#Vehicle-86"><span class="linenos">86</span></a>        <span class="k">if</span> <span class="n">driving_type</span> <span class="o">==</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span>
+</span><span id="Vehicle-87"><a href="#Vehicle-87"><span class="linenos">87</span></a>            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">economy_data</span><span class="p">[</span><span class="s2">&quot;city08&quot;</span><span class="p">])</span>
+</span><span id="Vehicle-88"><a href="#Vehicle-88"><span class="linenos">88</span></a>        <span class="k">elif</span> <span class="n">driving_type</span> <span class="o">==</span> <span class="s2">&quot;highway&quot;</span><span class="p">:</span>
+</span><span id="Vehicle-89"><a href="#Vehicle-89"><span class="linenos">89</span></a>            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">economy_data</span><span class="p">[</span><span class="s2">&quot;highway08&quot;</span><span class="p">])</span>
+</span><span id="Vehicle-90"><a href="#Vehicle-90"><span class="linenos">90</span></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="Vehicle-91"><a href="#Vehicle-91"><span class="linenos">91</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;driving_type must be either &#39;city&#39; or &#39;highway&#39;&quot;</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -477,22 +473,20 @@ seats : int
 </span><span id="Vehicle.fetch_economy_data-55"><a href="#Vehicle.fetch_economy_data-55"><span class="linenos">55</span></a><span class="sd">        </span>
 </span><span id="Vehicle.fetch_economy_data-56"><a href="#Vehicle.fetch_economy_data-56"><span class="linenos">56</span></a><span class="sd">        Parameters</span>
 </span><span id="Vehicle.fetch_economy_data-57"><a href="#Vehicle.fetch_economy_data-57"><span class="linenos">57</span></a><span class="sd">        ----------</span>
-</span><span id="Vehicle.fetch_economy_data-58"><a href="#Vehicle.fetch_economy_data-58"><span class="linenos">58</span></a><span class="sd">        - make: str</span>
+</span><span id="Vehicle.fetch_economy_data-58"><a href="#Vehicle.fetch_economy_data-58"><span class="linenos">58</span></a><span class="sd">        make: str</span>
 </span><span id="Vehicle.fetch_economy_data-59"><a href="#Vehicle.fetch_economy_data-59"><span class="linenos">59</span></a><span class="sd">            The vehicle&#39;s manufacturer.</span>
-</span><span id="Vehicle.fetch_economy_data-60"><a href="#Vehicle.fetch_economy_data-60"><span class="linenos">60</span></a>
-</span><span id="Vehicle.fetch_economy_data-61"><a href="#Vehicle.fetch_economy_data-61"><span class="linenos">61</span></a><span class="sd">        - model: str</span>
-</span><span id="Vehicle.fetch_economy_data-62"><a href="#Vehicle.fetch_economy_data-62"><span class="linenos">62</span></a><span class="sd">            The vehicle&#39;s model name.</span>
-</span><span id="Vehicle.fetch_economy_data-63"><a href="#Vehicle.fetch_economy_data-63"><span class="linenos">63</span></a>
-</span><span id="Vehicle.fetch_economy_data-64"><a href="#Vehicle.fetch_economy_data-64"><span class="linenos">64</span></a><span class="sd">        - year: int</span>
-</span><span id="Vehicle.fetch_economy_data-65"><a href="#Vehicle.fetch_economy_data-65"><span class="linenos">65</span></a><span class="sd">            The vehicle&#39;s model year.</span>
-</span><span id="Vehicle.fetch_economy_data-66"><a href="#Vehicle.fetch_economy_data-66"><span class="linenos">66</span></a><span class="sd">        </span>
-</span><span id="Vehicle.fetch_economy_data-67"><a href="#Vehicle.fetch_economy_data-67"><span class="linenos">67</span></a><span class="sd">        Returns</span>
-</span><span id="Vehicle.fetch_economy_data-68"><a href="#Vehicle.fetch_economy_data-68"><span class="linenos">68</span></a><span class="sd">        -------</span>
-</span><span id="Vehicle.fetch_economy_data-69"><a href="#Vehicle.fetch_economy_data-69"><span class="linenos">69</span></a><span class="sd">        dict</span>
-</span><span id="Vehicle.fetch_economy_data-70"><a href="#Vehicle.fetch_economy_data-70"><span class="linenos">70</span></a><span class="sd">            A dictionary of economy data for the vehicle.</span>
-</span><span id="Vehicle.fetch_economy_data-71"><a href="#Vehicle.fetch_economy_data-71"><span class="linenos">71</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="Vehicle.fetch_economy_data-72"><a href="#Vehicle.fetch_economy_data-72"><span class="linenos">72</span></a>        <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/vehicles.csv&#39;</span><span class="p">))</span>
-</span><span id="Vehicle.fetch_economy_data-73"><a href="#Vehicle.fetch_economy_data-73"><span class="linenos">73</span></a>        <span class="k">return</span> <span class="nb">next</span><span class="p">((</span><span class="n">row</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_reader</span> <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;make&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">make</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">model</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)),</span> <span class="kc">None</span><span class="p">)</span>
+</span><span id="Vehicle.fetch_economy_data-60"><a href="#Vehicle.fetch_economy_data-60"><span class="linenos">60</span></a><span class="sd">        model: str</span>
+</span><span id="Vehicle.fetch_economy_data-61"><a href="#Vehicle.fetch_economy_data-61"><span class="linenos">61</span></a><span class="sd">            The vehicle&#39;s model name.</span>
+</span><span id="Vehicle.fetch_economy_data-62"><a href="#Vehicle.fetch_economy_data-62"><span class="linenos">62</span></a><span class="sd">        year: int</span>
+</span><span id="Vehicle.fetch_economy_data-63"><a href="#Vehicle.fetch_economy_data-63"><span class="linenos">63</span></a><span class="sd">            The vehicle&#39;s model year.</span>
+</span><span id="Vehicle.fetch_economy_data-64"><a href="#Vehicle.fetch_economy_data-64"><span class="linenos">64</span></a><span class="sd">        </span>
+</span><span id="Vehicle.fetch_economy_data-65"><a href="#Vehicle.fetch_economy_data-65"><span class="linenos">65</span></a><span class="sd">        Returns</span>
+</span><span id="Vehicle.fetch_economy_data-66"><a href="#Vehicle.fetch_economy_data-66"><span class="linenos">66</span></a><span class="sd">        -------</span>
+</span><span id="Vehicle.fetch_economy_data-67"><a href="#Vehicle.fetch_economy_data-67"><span class="linenos">67</span></a><span class="sd">        dict</span>
+</span><span id="Vehicle.fetch_economy_data-68"><a href="#Vehicle.fetch_economy_data-68"><span class="linenos">68</span></a><span class="sd">            A dictionary of economy data for the vehicle.</span>
+</span><span id="Vehicle.fetch_economy_data-69"><a href="#Vehicle.fetch_economy_data-69"><span class="linenos">69</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="Vehicle.fetch_economy_data-70"><a href="#Vehicle.fetch_economy_data-70"><span class="linenos">70</span></a>        <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/vehicles.csv&#39;</span><span class="p">))</span>
+</span><span id="Vehicle.fetch_economy_data-71"><a href="#Vehicle.fetch_economy_data-71"><span class="linenos">71</span></a>        <span class="k">return</span> <span class="nb">next</span><span class="p">((</span><span class="n">row</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_reader</span> <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;make&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">make</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">model</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)),</span> <span class="kc">None</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -500,14 +494,12 @@ seats : int
 
 <h2 id="parameters">Parameters</h2>
 
-<ul>
-<li><p>make: str
-The vehicle's manufacturer.</p></li>
-<li><p>model: str
-The vehicle's model name.</p></li>
-<li><p>year: int
-The vehicle's model year.</p></li>
-</ul>
+<p>make: str
+    The vehicle's manufacturer.
+model: str
+    The vehicle's model name.
+year: int
+    The vehicle's model year.</p>
 
 <h2 id="returns">Returns</h2>
 
@@ -528,25 +520,25 @@ The vehicle's model year.</p></li>
 
     </div>
     <a class="headerlink" href="#Vehicle.get_mpg"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Vehicle.get_mpg-75"><a href="#Vehicle.get_mpg-75"><span class="linenos">75</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_mpg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">driving_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">float</span><span class="p">:</span>
-</span><span id="Vehicle.get_mpg-76"><a href="#Vehicle.get_mpg-76"><span class="linenos">76</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the vehicle&#39;s MPG for a given driving type.</span>
-</span><span id="Vehicle.get_mpg-77"><a href="#Vehicle.get_mpg-77"><span class="linenos">77</span></a>
-</span><span id="Vehicle.get_mpg-78"><a href="#Vehicle.get_mpg-78"><span class="linenos">78</span></a><span class="sd">        Parameters</span>
-</span><span id="Vehicle.get_mpg-79"><a href="#Vehicle.get_mpg-79"><span class="linenos">79</span></a><span class="sd">        ----------</span>
-</span><span id="Vehicle.get_mpg-80"><a href="#Vehicle.get_mpg-80"><span class="linenos">80</span></a><span class="sd">        driving_type : str</span>
-</span><span id="Vehicle.get_mpg-81"><a href="#Vehicle.get_mpg-81"><span class="linenos">81</span></a><span class="sd">            Either &quot;city&quot; or &quot;highway&quot;.</span>
-</span><span id="Vehicle.get_mpg-82"><a href="#Vehicle.get_mpg-82"><span class="linenos">82</span></a>
-</span><span id="Vehicle.get_mpg-83"><a href="#Vehicle.get_mpg-83"><span class="linenos">83</span></a><span class="sd">        Returns</span>
-</span><span id="Vehicle.get_mpg-84"><a href="#Vehicle.get_mpg-84"><span class="linenos">84</span></a><span class="sd">        -------</span>
-</span><span id="Vehicle.get_mpg-85"><a href="#Vehicle.get_mpg-85"><span class="linenos">85</span></a><span class="sd">        float</span>
-</span><span id="Vehicle.get_mpg-86"><a href="#Vehicle.get_mpg-86"><span class="linenos">86</span></a><span class="sd">            The MPG value for the specified driving type.</span>
-</span><span id="Vehicle.get_mpg-87"><a href="#Vehicle.get_mpg-87"><span class="linenos">87</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="Vehicle.get_mpg-88"><a href="#Vehicle.get_mpg-88"><span class="linenos">88</span></a>        <span class="k">if</span> <span class="n">driving_type</span> <span class="o">==</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span>
-</span><span id="Vehicle.get_mpg-89"><a href="#Vehicle.get_mpg-89"><span class="linenos">89</span></a>            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">economy_data</span><span class="p">[</span><span class="s2">&quot;city08&quot;</span><span class="p">])</span>
-</span><span id="Vehicle.get_mpg-90"><a href="#Vehicle.get_mpg-90"><span class="linenos">90</span></a>        <span class="k">elif</span> <span class="n">driving_type</span> <span class="o">==</span> <span class="s2">&quot;highway&quot;</span><span class="p">:</span>
-</span><span id="Vehicle.get_mpg-91"><a href="#Vehicle.get_mpg-91"><span class="linenos">91</span></a>            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">economy_data</span><span class="p">[</span><span class="s2">&quot;highway08&quot;</span><span class="p">])</span>
-</span><span id="Vehicle.get_mpg-92"><a href="#Vehicle.get_mpg-92"><span class="linenos">92</span></a>        <span class="k">else</span><span class="p">:</span>
-</span><span id="Vehicle.get_mpg-93"><a href="#Vehicle.get_mpg-93"><span class="linenos">93</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;driving_type must be either &#39;city&#39; or &#39;highway&#39;&quot;</span><span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Vehicle.get_mpg-73"><a href="#Vehicle.get_mpg-73"><span class="linenos">73</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_mpg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">driving_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">float</span><span class="p">:</span>
+</span><span id="Vehicle.get_mpg-74"><a href="#Vehicle.get_mpg-74"><span class="linenos">74</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the vehicle&#39;s MPG for a given driving type.</span>
+</span><span id="Vehicle.get_mpg-75"><a href="#Vehicle.get_mpg-75"><span class="linenos">75</span></a>
+</span><span id="Vehicle.get_mpg-76"><a href="#Vehicle.get_mpg-76"><span class="linenos">76</span></a><span class="sd">        Parameters</span>
+</span><span id="Vehicle.get_mpg-77"><a href="#Vehicle.get_mpg-77"><span class="linenos">77</span></a><span class="sd">        ----------</span>
+</span><span id="Vehicle.get_mpg-78"><a href="#Vehicle.get_mpg-78"><span class="linenos">78</span></a><span class="sd">        driving_type : str</span>
+</span><span id="Vehicle.get_mpg-79"><a href="#Vehicle.get_mpg-79"><span class="linenos">79</span></a><span class="sd">            Either &quot;city&quot; or &quot;highway&quot;.</span>
+</span><span id="Vehicle.get_mpg-80"><a href="#Vehicle.get_mpg-80"><span class="linenos">80</span></a>
+</span><span id="Vehicle.get_mpg-81"><a href="#Vehicle.get_mpg-81"><span class="linenos">81</span></a><span class="sd">        Returns</span>
+</span><span id="Vehicle.get_mpg-82"><a href="#Vehicle.get_mpg-82"><span class="linenos">82</span></a><span class="sd">        -------</span>
+</span><span id="Vehicle.get_mpg-83"><a href="#Vehicle.get_mpg-83"><span class="linenos">83</span></a><span class="sd">        float</span>
+</span><span id="Vehicle.get_mpg-84"><a href="#Vehicle.get_mpg-84"><span class="linenos">84</span></a><span class="sd">            The MPG value for the specified driving type.</span>
+</span><span id="Vehicle.get_mpg-85"><a href="#Vehicle.get_mpg-85"><span class="linenos">85</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="Vehicle.get_mpg-86"><a href="#Vehicle.get_mpg-86"><span class="linenos">86</span></a>        <span class="k">if</span> <span class="n">driving_type</span> <span class="o">==</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span>
+</span><span id="Vehicle.get_mpg-87"><a href="#Vehicle.get_mpg-87"><span class="linenos">87</span></a>            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">economy_data</span><span class="p">[</span><span class="s2">&quot;city08&quot;</span><span class="p">])</span>
+</span><span id="Vehicle.get_mpg-88"><a href="#Vehicle.get_mpg-88"><span class="linenos">88</span></a>        <span class="k">elif</span> <span class="n">driving_type</span> <span class="o">==</span> <span class="s2">&quot;highway&quot;</span><span class="p">:</span>
+</span><span id="Vehicle.get_mpg-89"><a href="#Vehicle.get_mpg-89"><span class="linenos">89</span></a>            <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">economy_data</span><span class="p">[</span><span class="s2">&quot;highway08&quot;</span><span class="p">])</span>
+</span><span id="Vehicle.get_mpg-90"><a href="#Vehicle.get_mpg-90"><span class="linenos">90</span></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="Vehicle.get_mpg-91"><a href="#Vehicle.get_mpg-91"><span class="linenos">91</span></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;driving_type must be either &#39;city&#39; or &#39;highway&#39;&quot;</span><span class="p">)</span>
 </span></pre></div>
 
 
