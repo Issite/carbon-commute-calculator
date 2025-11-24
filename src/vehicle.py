@@ -11,7 +11,7 @@ import csv
 class Vehicle:
     """Represent a vehicle and its emissions-related attributes."""
 
-    def __init__(self, make:str, model:str, year:int, seats:int):
+    def __init__(self, make:str, model:str, year:int):
         """Initialize a :class:`Vehicle` instance.
         
         Parameters
@@ -22,13 +22,10 @@ class Vehicle:
             The vehicle's model name (e.g., "Camry").
         year : int
             The vehicle's model year (e.g., 2020).
-        seats : int
-            The number of seats in the vehicle.
         """
         self.make = make
         self.model = model
         self.year = year
-        self.seats = seats
         self.economy_data = self.fetch_economy_data(make, model, year)
         self.economy_id = int(self.economy_data["id"]) if self.economy_data else None
         self.fuel_type = self.economy_data["fuelType1"] if self.economy_data else None  #Gasoline, Diesel, Electric
@@ -45,15 +42,14 @@ class Vehicle:
         make = input("Enter vehicle make: ")
         model = input("Enter vehicle model: ")
         year = int(input("Enter vehicle year: "))
-        seats = int(input("Enter number of seats: "))
-        return Vehicle(make, model, year, seats)
+        return Vehicle(make, model, year)
     
     def manage(self):
         """
         Prints out current vehicle information, and allows the user to update it.
         """
 
-        for idx, attr in enumerate(["make", "model", "year", "seats"]):
+        for idx, attr in enumerate(["make", "model", "year"]):
             print(f"{idx + 1}. {attr.capitalize()}: {getattr(self, attr)}")
         print("0. Exit")
         
@@ -61,13 +57,13 @@ class Vehicle:
             if choice < 1 or choice > 4:
                 print("Invalid choice. Please try again.")
                 continue
-            attr = ["make", "model", "year", "seats"][choice - 1]
+            attr = ["make", "model", "year"][choice - 1]
             new_value = input(f"Enter new value for {attr}: ")
-            if attr == "year" or attr == "seats":
+            if attr == "year":
                 new_value = int(new_value)
             setattr(self, attr, new_value)
             print(f"{attr.capitalize()} updated to {new_value}.")
-            for idx, attr in enumerate(["make", "model", "year", "seats"]):
+            for idx, attr in enumerate(["make", "model", "year"]):
                 print(f"{idx + 1}. {attr.capitalize()}: {getattr(self, attr)}")
             print("0: Exit")
 
@@ -148,7 +144,6 @@ class Vehicle:
             "make": self.make,
             "model": self.model,
             "year": self.year,
-            "seats": self.seats,
             "economy_id": self.economy_id
         }
     
@@ -170,7 +165,6 @@ class Vehicle:
         vehicle = Vehicle(
             make=data["make"],
             model=data["model"],
-            year=data["year"],
-            seats=data["seats"]
+            year=data["year"]
         )
         return vehicle
