@@ -42,7 +42,7 @@ class CarbonCommute:
             if choice == '0':
                 self.load_file()
             elif choice == '1':
-                self.add_vehicle()
+                self.manage_vehicles()
             elif choice == '2':
                 self.calculator()
             elif choice == '3':
@@ -81,18 +81,24 @@ class CarbonCommute:
 
         print(f"Trip added! Total emissions for this trip: {trip.total_emissions} lbs CO2")
 
-    def add_vehicle(self):
-        """Placeholder for adding a vehicle to the application."""
+    def manage_vehicles(self):
+        """Lists and allows management of vehicles in the application."""
         if (len(self.vehicles) == 0):
             self.vehicles.append(Vehicle.prompt())
         else:
             for idx, vehicle in enumerate(self.vehicles):
                 print(f"{idx + 1}. {vehicle.make} {vehicle.model} ({vehicle.year}) - {vehicle.fuel_type}")
-            choice = int(input("Enter 0 to add a new vehicle or the number of a vehicle to manage: "))
-            if choice == 0:
-                self.vehicles.append(Vehicle.prompt())
-            else:
-                self.vehicles[choice - 1].manage()
+            print(f"{len(self.vehicles) + 1}. Add New Vehicle")
+            print("0. Exit")
+            while (choice := int(input("Enter 0 to exit or the number of a vehicle to manage: "))):
+                if choice == len(self.vehicles) + 1:
+                    self.vehicles.append(Vehicle.prompt())
+                else:
+                    self.vehicles[choice - 1].manage()
+                for idx, vehicle in enumerate(self.vehicles):
+                    print(f"{idx + 1}. {vehicle.make} {vehicle.model} ({vehicle.year}) - {vehicle.fuel_type}")
+                print(f"{len(self.vehicles) + 1}. Add New Vehicle")
+                print("0. Exit")
 
 
     def view_summary(self):
