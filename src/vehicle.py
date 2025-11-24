@@ -54,11 +54,11 @@ class Vehicle:
         
         Parameters
         ----------
-        make: str
+        make : str
             The vehicle's manufacturer.
-        model: str
+        model : str
             The vehicle's model name.
-        year: int
+        year : int
             The vehicle's model year.
         
         Returns
