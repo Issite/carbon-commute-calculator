@@ -52,8 +52,13 @@ class Trip:
         gallons_used = distance / mpg
         if self.vehicle.fuel_type == "Gasoline":
             total_emissions = (gallons_used * 19.6) / self.passengers  # Assuming 19.6 lbs CO2 per gallon of gasoline
+        elif self.vehicle.fuel_type == "Premium Gasoline":
+            total_emissions = (gallons_used * 19.4) / self.passengers  # Assuming 19.4 lbs CO2 per gallon of premium gasoline
         elif self.vehicle.fuel_type == "Diesel":
             total_emissions = (gallons_used * 22.4) / self.passengers  # Assuming 22.4 lbs CO2 per gallon of diesel
         elif self.vehicle.fuel_type == "Electric":
             total_emissions = 0  # Electric vehicles assumed to have zero emissions for this placeholder
+        else:
+            print(f"Unknown fuel type {self.vehicle.fuel_type}, using default emission factor.")
+            total_emissions = (gallons_used * 20) / self.passengers  # Default case for unknown fuel types
         return total_emissions * self.frequency * self.occurance

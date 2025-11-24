@@ -31,7 +31,7 @@ class CarbonCommute:
         print("Welcome to the Carbon Commute Calculator!")
         while True:
             print("0. Load File")
-            print("1. Add Vehicle")
+            print("1. Add/Edit Vehicle")
             print("2. Add Trip")
             print("3. View Summary")
             print("4. Save Data")
@@ -82,7 +82,10 @@ class CarbonCommute:
 
     def add_vehicle(self):
         """Placeholder for adding a vehicle to the application."""
-        self.vehicles.append(Vehicle.prompt())
+        if (len(self.vehicles) == 0):
+            self.vehicles.append(Vehicle.prompt())
+        else:
+            print("Vehicles already exist. Editing vehicles is not yet implemented.")
 
     def view_summary(self):
         """Print a human-readable summary of recorded trips and totals."""

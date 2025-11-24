@@ -38,7 +38,7 @@ class Vehicle:
     @staticmethod
     def fetch_economy_data(make: str, model: str, year: int)->dict:
         """Fetch fuel/economy data for this vehicle from an API."""
-        csv_reader = csv.DictReader(open('src/vehicle_data.csv'))
+        csv_reader = csv.DictReader(open('data/vehicles.csv'))
         return next((row for row in csv_reader if row["make"] == make and row["model"] == model and row["year"] == str(year)), None)
     
     def get_mpg(self, driving_type: str)->float:
