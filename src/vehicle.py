@@ -50,8 +50,31 @@ class Vehicle:
     
     def manage(self):
         """
-        
+        Prints out current vehicle information, and allows the user to update it.
         """
+
+        for idx, attr in enumerate(["make", "model", "year", "seats"]):
+            print(f"{idx + 1}. {attr.capitalize()}: {getattr(self, attr)}")
+        print("0. Exit")
+        
+        while (choice := int(input("Select an attribute to update (or 0 to exit): "))):
+            if choice < 1 or choice > 4:
+                print("Invalid choice. Please try again.")
+                continue
+            attr = ["make", "model", "year", "seats"][choice - 1]
+            new_value = input(f"Enter new value for {attr}: ")
+            if attr == "year" or attr == "seats":
+                new_value = int(new_value)
+            setattr(self, attr, new_value)
+            print(f"{attr.capitalize()} updated to {new_value}.")
+            for idx, attr in enumerate(["make", "model", "year", "seats"]):
+                print(f"{idx + 1}. {attr.capitalize()}: {getattr(self, attr)}")
+            print("0: Exit")
+
+            self.economy_data = self.fetch_economy_data(self.make, self.model, self.year)
+            self.economy_id = int(self.economy_data["id"]) if self.economy_data else None
+            self.fuel_type = self.economy_data["fuelType1"] if self.economy_data else None  #Gasoline, Diesel, Electric
+
 
     @staticmethod
     def fetch_economy_data(make: str, model: str, year: int)->dict:
