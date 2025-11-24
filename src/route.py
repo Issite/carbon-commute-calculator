@@ -29,11 +29,6 @@ class Route:
     def fetch_route_data(self):
         """Fetch route metrics and update this Route instance.
 
-        This is a placeholder that should perform an HTTP request to an
-        external routing service to determine the route distance and
-        other metadata. For now, if no distance is set the method
-        assigns a reasonable default to allow downstream logic to run.
-
         Returns
         -------
         float

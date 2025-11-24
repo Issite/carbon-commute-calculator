@@ -20,21 +20,13 @@ class CarbonCommute:
     """
 
     def __init__(self):
-        """Create a new CarbonCommute application instance.
-
-        The application starts with empty `vehicles` and `trips`
-        lists. Persistence and vehicle-creation functionality are
-        intentionally left as placeholders for later implementation.
-        """
+        """Create a new CarbonCommute application instance."""
         self.vehicles = []
         self.trips = []
 
     def run(self):
-        """Start the interactive application loop.
+        """Start the interactive application loop."""
 
-        The method prints a simple menu and dispatches user choices to
-        the corresponding handler methods until the user exits.
-        """
         print("Welcome to the Carbon Commute Calculator!")
         while True:
             print("0. Load File")
@@ -62,13 +54,7 @@ class CarbonCommute:
                 print("Invalid choice. Please try again.")
 
     def calculator(self):
-        """Interactively create a :class:`Trip` and add it to the app.
-
-        Prompts the user to select a vehicle, enter origin and
-        destination addresses, and specify frequency/occurrence and
-        passenger count. The created :class:`Trip` is appended to the
-        application's `trips` list.
-        """
+        """Interactively create a :class:`Trip` and add it to the app."""
         print("Please select a vehicle:")
         for idx, vehicle in enumerate(self.vehicles):
             print(f"{idx}. {vehicle.make} {vehicle.model} ({vehicle.year}) - {vehicle.fuel_type}")
@@ -94,22 +80,12 @@ class CarbonCommute:
         print(f"Trip added! Total emissions for this trip: {trip.total_emissions} lbs CO2")
 
     def add_vehicle(self):
-        """Placeholder for adding a vehicle to the application.
-
-        Implementations should prompt the user for vehicle fields,
-        create a :class:`vehicle.Vehicle` instance and append it to
-        ``self.vehicles``.
-        """
+        """Placeholder for adding a vehicle to the application."""
         pass
 
     def view_summary(self):
-        """Print a human-readable summary of recorded trips and totals.
+        """Print a human-readable summary of recorded trips and totals."""
 
-        The method iterates over stored trips and prints each trip's
-        emissions, then prints aggregated weekly, monthly and yearly
-        estimates. Aggregation uses simple scaling based on the trip's
-        configured frequency and occurrence values.
-        """
         for trip in self.trips:
             print(f"Trip from {trip.route.origin} to {trip.route.destination}: {trip.total_emissions} lbs CO2")
 
@@ -122,17 +98,9 @@ class CarbonCommute:
         print(f"Yearly Emissions: {yearly_emissions} lbs CO2")
 
     def save_data(self):
-        """Placeholder for persisting application data to disk.
-
-        A future implementation should serialize `self.vehicles` and
-        `self.trips` to a file (for example JSON) and handle errors.
-        """
+        """Placeholder for persisting application data to disk."""
         pass
 
     def load_file(self):
-        """Placeholder for loading persisted application data.
-
-        A real implementation should deserialize previously saved data
-        and populate `self.vehicles` and `self.trips` appropriately.
-        """
+        """Placeholder for loading persisted application data."""
         pass

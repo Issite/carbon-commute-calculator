@@ -1,7 +1,7 @@
 """Trip representation and emissions calculation utilities.
 
 The :class:`Trip` class couples a :class:`route.Route` and
-:class:`vehicle.Vehicle` instance and provides a basic (placeholder)
+:class:`vehicle.Vehicle` instance and provides a basic
 method for computing estimated CO2 emissions for the trip.
 """
 
@@ -24,6 +24,14 @@ class Trip:
     """
 
     def __init__(self, route, vehicle, frequency=0, occurance=1, passengers=1):
+        """Initialize a :class:`Trip`.
+
+        :param route Route: The route for the trip.
+        :param vehicle Vehicle: The vehicle used for the trip.
+        :param frequency int: Frequency period in days.
+        :param occurance int: Number of occurrences within the frequency.
+        :param passengers int: Number of passengers for the trip.
+        """
         self.route = route
         self.vehicle = vehicle
         self.frequency = frequency
@@ -34,17 +42,11 @@ class Trip:
     def calculate_emissions(self):
         """Estimate CO2 emissions for this trip.
 
-        This method uses placeholder logic to compute emissions based on
-        the route distance and vehicle emissions/fuel-efficiency data.
-        It returns an estimate in pounds (lbs) of CO2 for the configured
-        frequency and occurrence values.
-
         Returns
         -------
         float
             Estimated total emissions for the trip in lbs CO2.
         """
-        # Placeholder for emissions calculation logic
         distance = self.route.distance
         emissions = self.vehicle.emissions_data
         gallons_used = distance / emissions
