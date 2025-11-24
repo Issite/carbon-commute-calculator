@@ -19,6 +19,18 @@ class Vehicle:
         self.seats = seats
         self.emissions_data = self.fetch_emissions_data()
 
-    def fetch_fuel_data(self):
+    @staticmethod
+    def prompt()-> 'Vehicle':
+        """Prompt the user for vehicle details and return a Vehicle instance."""
+        make = input("Enter vehicle make: ")
+        model = input("Enter vehicle model: ")
+        year = int(input("Enter vehicle year: "))
+        fuel_type = Vehicle.fetch_fuel_data(make, model, year)["fuelType1"]
+        seats = Vehicle.fetch_fuel_data(make, model, year)["seats"]
+        return Vehicle(make, model, year, fuel_type, seats)
+
+    @staticmethod
+    def fetch_fuel_data(make: str, model: str, year: int)->dict:
         """Fetch fuel/economy data for this vehicle from an API."""
+        
         pass

@@ -9,6 +9,7 @@ interactive experimentation and further extension.
 
 from src.route import Route
 from src.trip import Trip
+from src.vehicle import Vehicle
 
 
 class CarbonCommute:
@@ -81,7 +82,7 @@ class CarbonCommute:
 
     def add_vehicle(self):
         """Placeholder for adding a vehicle to the application."""
-        pass
+        self.vehicles.append(Vehicle.prompt())
 
     def view_summary(self):
         """Print a human-readable summary of recorded trips and totals."""
