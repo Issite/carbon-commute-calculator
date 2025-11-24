@@ -7,8 +7,8 @@ placeholder I/O and persistence methods and is suitable for
 interactive experimentation and further extension.
 """
 
-from route import Route
-from trip import Trip
+from src.route import Route
+from src.trip import Trip
 
 
 class CarbonCommute:

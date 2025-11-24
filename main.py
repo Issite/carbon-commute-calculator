@@ -4,12 +4,12 @@ This module provides a small CLI entry point that creates and runs
 the main `CarbonCommute` application object.
 """
 
-import carbon_commute
+import src.carbon_commute
 
 
 def main():
     """Create and run the CarbonCommute application."""
-    app = carbon_commute.CarbonCommute()
+    app = src.carbon_commute.CarbonCommute()
     app.run()
 
 
