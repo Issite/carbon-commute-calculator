@@ -32,7 +32,7 @@ class CarbonCommute:
         print("Welcome to the Carbon Commute Calculator!")
         while True:
             print("0. Load File")
-            print("1. Add/Edit Vehicle")
+            print("1. Add/Manage Vehicles")
             print("2. Add Trip")
             print("3. View Summary")
             print("4. Save Data")
@@ -86,7 +86,14 @@ class CarbonCommute:
         if (len(self.vehicles) == 0):
             self.vehicles.append(Vehicle.prompt())
         else:
-            print("Vehicles already exist. Editing vehicles is not yet implemented.")
+            for idx, vehicle in enumerate(self.vehicles):
+                print(f"{idx + 1}. {vehicle.make} {vehicle.model} ({vehicle.year}) - {vehicle.fuel_type}")
+            choice = int(input("Enter 0 to add a new vehicle or the number of a vehicle to manage: "))
+            if choice == 0:
+                self.vehicles.append(Vehicle.prompt())
+            else:
+                self.vehicles[choice - 1].manage()
+
 
     def view_summary(self):
         """Print a human-readable summary of recorded trips and totals."""
