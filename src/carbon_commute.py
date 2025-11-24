@@ -23,6 +23,7 @@ class CarbonCommute:
     def __init__(self):
         """Create a new CarbonCommute application instance."""
         self.vehicles = []
+        """A list of vehicles available to the application."""
         self.trips = []
 
     def run(self):
