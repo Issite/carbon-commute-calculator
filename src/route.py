@@ -6,10 +6,15 @@ route metrics such as distance. The real implementation should call
 an external routing API (for example, Google Routes API) to populate
 the distance and other route metadata.
 """
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+except Exception:
+    def load_dotenv():
+        return None
 import os
 import requests
 import json
+
 
 class Route:
     """Represent a travel route between an origin and a destination.

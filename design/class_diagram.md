@@ -1,5 +1,6 @@
 ```mermaid
 classDiagram
+direction LR
 
     class Trip
         Trip: -vehicle vehicle

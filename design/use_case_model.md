@@ -28,3 +28,9 @@ After a trip has been calculated, the system will perform a simple carbon footpr
 
 ### 5. Display Statistics
 When the user selects the statistics option from the menu/settings, the system will then perform the carbon footprint calculation for each of the users saved trips, accounting for the frequency and occurnace of the trip.  Each calculation is aggregated to a total, which is presented to the user by weekly, monthly, and yearly carbon footprint.
+
+### 6. Save to File
+The user can select the save to file option from the menu/settings, which will then prompt the system to gather all user data including vehicle presets, preferences, and saved trips.  The system will then format this data into a JSON object, and write this object to a file on the users device for future retrieval.
+
+### 7. Load from File
+The user can select the load from file option from the menu/settings, which will then prompt the system to read a JSON object from a file on the users device.  The system will then parse this object, and extract the user data including vehicle presets, preferences, and saved trips.  This data is then used to repopulate the system for the user.
