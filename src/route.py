@@ -12,6 +12,7 @@ except Exception:
     def load_dotenv():
         return None
 import os
+import requests
 import json
 
 
@@ -74,8 +75,6 @@ class Route:
             "languageCode": "en-US",
             "units": "METRIC"
         }
-
-        import requests
 
         response = requests.post(url, headers=headers, data=json.dumps(body))
 
