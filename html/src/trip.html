@@ -46,7 +46,7 @@
                                 <a class="variable" href="#Trip.frequency">frequency</a>
                         </li>
                         <li>
-                                <a class="variable" href="#Trip.occurance">occurance</a>
+                                <a class="variable" href="#Trip.occurrence">occurrence</a>
                         </li>
                         <li>
                                 <a class="variable" href="#Trip.passengers">passengers</a>
@@ -112,7 +112,7 @@ method for computing estimated CO2 emissions for the trip.</p>
 </span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a><span class="sd">        Number of passengers occupying the vehicle for the trip.</span>
 </span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>
-</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">vehicle</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">occurance</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">passengers</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">vehicle</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">occurrence</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">passengers</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 </span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a :class:`Trip`.</span>
 </span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a>
 </span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a><span class="sd">        :param route Route: The route for the trip.</span>
@@ -124,9 +124,9 @@ method for computing estimated CO2 emissions for the trip.</p>
 </span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">route</span> <span class="o">=</span> <span class="n">route</span>
 </span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">vehicle</span> <span class="o">=</span> <span class="n">vehicle</span>
 </span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span> <span class="o">=</span> <span class="n">frequency</span>
-</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">occurance</span> <span class="o">=</span> <span class="n">occurance</span>
+</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">occurrence</span> <span class="o">=</span> <span class="n">occurrence</span>
 </span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">passengers</span> <span class="o">=</span> <span class="n">passengers</span>
-</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">total_emissions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_emissions</span><span class="p">()</span>
+</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">total_emissions</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">calculate_emissions</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)</span>
 </span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a>
 </span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_emissions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Estimate CO2 emissions for this trip.</span>
@@ -150,7 +150,7 @@ method for computing estimated CO2 emissions for the trip.</p>
 </span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a>        <span class="k">else</span><span class="p">:</span>
 </span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown fuel type </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vehicle</span><span class="o">.</span><span class="n">fuel_type</span><span class="si">}</span><span class="s2">, using default emission factor.&quot;</span><span class="p">)</span>
 </span><span id="L-63"><a href="#L-63"><span class="linenos">63</span></a>            <span class="n">total_emissions</span> <span class="o">=</span> <span class="p">(</span><span class="n">gallons_used</span> <span class="o">*</span> <span class="mi">20</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">passengers</span>  <span class="c1"># Default case for unknown fuel types</span>
-</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a>        <span class="k">return</span> <span class="n">total_emissions</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">occurance</span>
+</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a>        <span class="k">return</span> <span class="n">total_emissions</span>
 </span></pre></div>
 
 
@@ -183,7 +183,7 @@ method for computing estimated CO2 emissions for the trip.</p>
 </span><span id="Trip-24"><a href="#Trip-24"><span class="linenos">24</span></a><span class="sd">        Number of passengers occupying the vehicle for the trip.</span>
 </span><span id="Trip-25"><a href="#Trip-25"><span class="linenos">25</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="Trip-26"><a href="#Trip-26"><span class="linenos">26</span></a>
-</span><span id="Trip-27"><a href="#Trip-27"><span class="linenos">27</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">vehicle</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">occurance</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">passengers</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+</span><span id="Trip-27"><a href="#Trip-27"><span class="linenos">27</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">vehicle</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">occurrence</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">passengers</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 </span><span id="Trip-28"><a href="#Trip-28"><span class="linenos">28</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a :class:`Trip`.</span>
 </span><span id="Trip-29"><a href="#Trip-29"><span class="linenos">29</span></a>
 </span><span id="Trip-30"><a href="#Trip-30"><span class="linenos">30</span></a><span class="sd">        :param route Route: The route for the trip.</span>
@@ -195,9 +195,9 @@ method for computing estimated CO2 emissions for the trip.</p>
 </span><span id="Trip-36"><a href="#Trip-36"><span class="linenos">36</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">route</span> <span class="o">=</span> <span class="n">route</span>
 </span><span id="Trip-37"><a href="#Trip-37"><span class="linenos">37</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">vehicle</span> <span class="o">=</span> <span class="n">vehicle</span>
 </span><span id="Trip-38"><a href="#Trip-38"><span class="linenos">38</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span> <span class="o">=</span> <span class="n">frequency</span>
-</span><span id="Trip-39"><a href="#Trip-39"><span class="linenos">39</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">occurance</span> <span class="o">=</span> <span class="n">occurance</span>
+</span><span id="Trip-39"><a href="#Trip-39"><span class="linenos">39</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">occurrence</span> <span class="o">=</span> <span class="n">occurrence</span>
 </span><span id="Trip-40"><a href="#Trip-40"><span class="linenos">40</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">passengers</span> <span class="o">=</span> <span class="n">passengers</span>
-</span><span id="Trip-41"><a href="#Trip-41"><span class="linenos">41</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">total_emissions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_emissions</span><span class="p">()</span>
+</span><span id="Trip-41"><a href="#Trip-41"><span class="linenos">41</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">total_emissions</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">calculate_emissions</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)</span>
 </span><span id="Trip-42"><a href="#Trip-42"><span class="linenos">42</span></a>
 </span><span id="Trip-43"><a href="#Trip-43"><span class="linenos">43</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_emissions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </span><span id="Trip-44"><a href="#Trip-44"><span class="linenos">44</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Estimate CO2 emissions for this trip.</span>
@@ -221,7 +221,7 @@ method for computing estimated CO2 emissions for the trip.</p>
 </span><span id="Trip-62"><a href="#Trip-62"><span class="linenos">62</span></a>        <span class="k">else</span><span class="p">:</span>
 </span><span id="Trip-63"><a href="#Trip-63"><span class="linenos">63</span></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown fuel type </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vehicle</span><span class="o">.</span><span class="n">fuel_type</span><span class="si">}</span><span class="s2">, using default emission factor.&quot;</span><span class="p">)</span>
 </span><span id="Trip-64"><a href="#Trip-64"><span class="linenos">64</span></a>            <span class="n">total_emissions</span> <span class="o">=</span> <span class="p">(</span><span class="n">gallons_used</span> <span class="o">*</span> <span class="mi">20</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">passengers</span>  <span class="c1"># Default case for unknown fuel types</span>
-</span><span id="Trip-65"><a href="#Trip-65"><span class="linenos">65</span></a>        <span class="k">return</span> <span class="n">total_emissions</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">occurance</span>
+</span><span id="Trip-65"><a href="#Trip-65"><span class="linenos">65</span></a>        <span class="k">return</span> <span class="n">total_emissions</span>
 </span></pre></div>
 
 
@@ -246,13 +246,13 @@ passengers : int, optional
                                         <input id="Trip.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
-        <span class="name">Trip</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">route</span>, </span><span class="param"><span class="n">vehicle</span>, </span><span class="param"><span class="n">frequency</span><span class="o">=</span><span class="mi">0</span>, </span><span class="param"><span class="n">occurance</span><span class="o">=</span><span class="mi">1</span>, </span><span class="param"><span class="n">passengers</span><span class="o">=</span><span class="mi">1</span></span>)</span>
+        <span class="name">Trip</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">route</span>, </span><span class="param"><span class="n">vehicle</span>, </span><span class="param"><span class="n">frequency</span><span class="o">=</span><span class="mi">0</span>, </span><span class="param"><span class="n">occurrence</span><span class="o">=</span><span class="mi">1</span>, </span><span class="param"><span class="n">passengers</span><span class="o">=</span><span class="mi">1</span></span>)</span>
 
                 <label class="view-source-button" for="Trip.__init__-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#Trip.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Trip.__init__-27"><a href="#Trip.__init__-27"><span class="linenos">27</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">vehicle</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">occurance</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">passengers</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Trip.__init__-27"><a href="#Trip.__init__-27"><span class="linenos">27</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">vehicle</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">occurrence</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">passengers</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 </span><span id="Trip.__init__-28"><a href="#Trip.__init__-28"><span class="linenos">28</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a :class:`Trip`.</span>
 </span><span id="Trip.__init__-29"><a href="#Trip.__init__-29"><span class="linenos">29</span></a>
 </span><span id="Trip.__init__-30"><a href="#Trip.__init__-30"><span class="linenos">30</span></a><span class="sd">        :param route Route: The route for the trip.</span>
@@ -264,9 +264,9 @@ passengers : int, optional
 </span><span id="Trip.__init__-36"><a href="#Trip.__init__-36"><span class="linenos">36</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">route</span> <span class="o">=</span> <span class="n">route</span>
 </span><span id="Trip.__init__-37"><a href="#Trip.__init__-37"><span class="linenos">37</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">vehicle</span> <span class="o">=</span> <span class="n">vehicle</span>
 </span><span id="Trip.__init__-38"><a href="#Trip.__init__-38"><span class="linenos">38</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span> <span class="o">=</span> <span class="n">frequency</span>
-</span><span id="Trip.__init__-39"><a href="#Trip.__init__-39"><span class="linenos">39</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">occurance</span> <span class="o">=</span> <span class="n">occurance</span>
+</span><span id="Trip.__init__-39"><a href="#Trip.__init__-39"><span class="linenos">39</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">occurrence</span> <span class="o">=</span> <span class="n">occurrence</span>
 </span><span id="Trip.__init__-40"><a href="#Trip.__init__-40"><span class="linenos">40</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">passengers</span> <span class="o">=</span> <span class="n">passengers</span>
-</span><span id="Trip.__init__-41"><a href="#Trip.__init__-41"><span class="linenos">41</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">total_emissions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_emissions</span><span class="p">()</span>
+</span><span id="Trip.__init__-41"><a href="#Trip.__init__-41"><span class="linenos">41</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">total_emissions</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">calculate_emissions</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -318,13 +318,13 @@ passengers : int, optional
     
 
                             </div>
-                            <div id="Trip.occurance" class="classattr">
+                            <div id="Trip.occurrence" class="classattr">
                                 <div class="attr variable">
-            <span class="name">occurance</span>
+            <span class="name">occurrence</span>
 
         
     </div>
-    <a class="headerlink" href="#Trip.occurance"></a>
+    <a class="headerlink" href="#Trip.occurrence"></a>
     
     
 
@@ -384,7 +384,7 @@ passengers : int, optional
 </span><span id="Trip.calculate_emissions-62"><a href="#Trip.calculate_emissions-62"><span class="linenos">62</span></a>        <span class="k">else</span><span class="p">:</span>
 </span><span id="Trip.calculate_emissions-63"><a href="#Trip.calculate_emissions-63"><span class="linenos">63</span></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown fuel type </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vehicle</span><span class="o">.</span><span class="n">fuel_type</span><span class="si">}</span><span class="s2">, using default emission factor.&quot;</span><span class="p">)</span>
 </span><span id="Trip.calculate_emissions-64"><a href="#Trip.calculate_emissions-64"><span class="linenos">64</span></a>            <span class="n">total_emissions</span> <span class="o">=</span> <span class="p">(</span><span class="n">gallons_used</span> <span class="o">*</span> <span class="mi">20</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">passengers</span>  <span class="c1"># Default case for unknown fuel types</span>
-</span><span id="Trip.calculate_emissions-65"><a href="#Trip.calculate_emissions-65"><span class="linenos">65</span></a>        <span class="k">return</span> <span class="n">total_emissions</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">occurance</span>
+</span><span id="Trip.calculate_emissions-65"><a href="#Trip.calculate_emissions-65"><span class="linenos">65</span></a>        <span class="k">return</span> <span class="n">total_emissions</span>
 </span></pre></div>
 
 
