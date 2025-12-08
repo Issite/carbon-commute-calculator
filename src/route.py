@@ -13,7 +13,7 @@ except Exception:
         return None
 import os
 import json
-import requests
+
 
 class Route:
     """Represent a travel route between an origin and a destination.
@@ -74,6 +74,8 @@ class Route:
             "languageCode": "en-US",
             "units": "METRIC"
         }
+
+        import requests
 
         response = requests.post(url, headers=headers, data=json.dumps(body))
 
