@@ -12,7 +12,17 @@ Command-line tool for estimating commute-related carbon emissions and comparing 
 ## Requirements
 - Python 3.10+ (tested with Python 3.11).
 - Poetry for dependency and venv management.
-- Google Cloud project with Routes Matrix API enabled (for real distance data).
+- Google Cloud project with Routes API enabled (for real distance data).
+
+## Google Cloud Setup
+1) After creating your Google Cloud account, create your first Project on Google Cloud via the Google Cloud console (https://cloud.google.com/cloud-console)
+
+2) Setup a Billing Account (credit card required)
+- Free tier includes 10,000 API calls, more than enough for simple usage of this program.
+- Please refer to the Google Maps Platform core services pricing list (https://developers.google.com/maps/billing-and-pricing/pricing)
+
+3) Enable Routes API on your google cloud project
+- https://console.cloud.google.com/apis/library/routes.googleapis.com?hl=en-GB
 
 ## Setup
 1) Install Poetry (via pipx recommended):
@@ -28,7 +38,6 @@ poetry install
 3) Configure environment variables:
 - Copy `.env.example` to `.env` (create `.env.example` if it is missing) and set:
 	- `GOOGLE_ROUTES_API_KEY=<your_api_key>`
-- Ensure your Google Cloud project has the Routes Matrix API enabled.
 
 ## Run
 ```bash
